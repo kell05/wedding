@@ -19,7 +19,7 @@ nav {
     background-color: #f5f5f5;
     padding: 0px;
     margin: 0px;
-    color: #eee;
+    /*color: #eee;*/
 }
 
 header {
@@ -39,11 +39,15 @@ hr{
     margin-right: 100px;
 }
 
+a{
+    color: rgba(28,28,28,.7);
+}
+
 
 h1 {
     font-family: garamond-premier-pro-display;
-    border-style: solid;
-    border-color: red;
+    /*border-style: solid;*/
+    /*border-color: red;*/
 }
 
 #main {
@@ -53,12 +57,13 @@ h1 {
     margin-right: 200px;
     margin-left: 200px;
     border-style: solid;
-    /*border-color: red;*/
+    color: #4d4e4f;
+    border-color: #eee;
 }
 
 
 p{
     margin: 30px;
-    border-style: solid;
-    border-color: red;
+    /*border-style: solid;*/
+    /*border-color: red;*/
 }

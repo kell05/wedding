@@ -8,11 +8,10 @@
 
 ul{
     padding-inline-start: 0px;
-
 }
 
 nav {
-    margin-left: 0px;
+    /*margin-left: 0px;*/
 }
 
 :root {
@@ -21,6 +20,21 @@ nav {
     margin: 0px;
     /*color: #eee;*/
 }
+
+
+.centered{
+    text-align: center;
+    padding-top: 16px;
+}
+
+.statement-paragraph{
+
+    word-break: break-all
+}
+
+
+
+
 
 header {
     text-align: center;

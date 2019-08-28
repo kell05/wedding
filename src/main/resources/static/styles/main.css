@@ -6,35 +6,42 @@
     display: inline-block;
 }
 
+
+/* TODO: Need to select the link*/
+.chosen a {
+    text-decoration: underline;
+}
+
+/* TODO: Need to select the link */
+a{
+    text-decoration: none;
+}
+
 ul{
     padding-inline-start: 0px;
 }
 
-nav {
-    /*margin-left: 0px;*/
-}
 
 :root {
     background-color: #f5f5f5;
     padding: 0px;
     margin: 0px;
-    /*color: #eee;*/
 }
 
-
+/* TODO: Remove the padding to different  */
 .centered{
     text-align: center;
     padding-top: 16px;
 }
 
-.statement-paragraph{
-
-    word-break: break-all
+.statement-div{
+    margin-left: 100px ;
+    margin-right: 100px ;
 }
 
-
-
-
+.statement-paragraph{
+    word-break: inherit;
+}
 
 header {
     text-align: center;

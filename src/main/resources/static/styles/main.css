@@ -1,12 +1,14 @@
 #main-nav li {
-    padding-left: 25px;
-    padding-right: 0px;
+    padding: 0px 25px;
     margin-left: 0px;
     list-style-type: none;
     display: inline-block;
 }
 
+header {
+    padding-top: 15px;
 
+}
 /* TODO: Need to select the link*/
 .chosen a {
     text-decoration: underline;
@@ -43,11 +45,16 @@ ul{
     word-break: inherit;
 }
 
-header {
+h1.title {
     text-align: center;
     margin-top: 0px;
     vertical-align: middle;
 }
+
+nav {
+    text-align: center;
+}
+
 
 .main-image {
     display: block;
@@ -69,6 +76,11 @@ h1 {
     font-family: garamond-premier-pro-display;
     /*border-style: solid;*/
     /*border-color: red;*/
+}
+
+nav  {
+    width: auto;
+    margin: auto;
 }
 
 #main {

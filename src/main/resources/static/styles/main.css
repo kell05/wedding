@@ -15,14 +15,13 @@ header {
 }
 
 /* TODO: Need to select the link */
-a{
+a {
     text-decoration: none;
 }
 
-ul{
+ul {
     padding-inline-start: 0px;
 }
-
 
 :root {
     background-color: #f5f5f5;
@@ -31,17 +30,17 @@ ul{
 }
 
 /* TODO: Remove the padding to different  */
-.centered{
+.centered {
     text-align: center;
     padding-top: 16px;
 }
 
-.statement-div{
-    margin-left: 100px ;
-    margin-right: 100px ;
+.statement-div {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-.statement-paragraph{
+.statement-paragraph {
     word-break: inherit;
 }
 
@@ -55,22 +54,20 @@ nav {
     text-align: center;
 }
 
-
 .main-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-hr{
+hr {
     margin-left: 100px;
     margin-right: 100px;
 }
 
-a{
-    color: rgba(28,28,28,.7);
+a {
+    color: rgba(28, 28, 28, .7);
 }
-
 
 h1 {
     font-family: garamond-premier-pro-display;
@@ -78,7 +75,7 @@ h1 {
     /*border-color: red;*/
 }
 
-nav  {
+nav {
     width: auto;
     margin: auto;
 }
@@ -94,8 +91,7 @@ nav  {
     border-color: #eee;
 }
 
-
-p{
+p {
     margin: 30px;
     /*border-style: solid;*/
     /*border-color: red;*/

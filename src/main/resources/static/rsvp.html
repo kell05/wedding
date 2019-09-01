@@ -15,7 +15,7 @@
         }
 
         textarea {
-            width: 250px;
+            width: 100%;;
             height: 150px;
             resize: none;
         }
@@ -28,6 +28,9 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+        select{
+            font-size: 19px;
         }
 
         input[type=submit] {
@@ -48,9 +51,9 @@
         form {
             border-radius: 5px;
             /*background-color: #f2f2f2;*/
-            margin-left: 100px;
-            margin-right: 100px;
-                /*padding: 20px;*/
+            margin-left: 150px;
+            margin-right: 150px;
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -60,14 +63,14 @@
         <h1 class="title">James & Laura</h1>
         <nav>
             <ul id="main-nav" class="nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Wedding</a></li>
-                <li><a class="chosen" href="#">RSVP</a></li>
+                <li><a class="chosen" href="rsvp.html">RSVP</a></li>
             </ul>
         </nav>
     </header>
     <div class="centered">
-        <h3>Please RSVP by February 1, 2016</h3>
+        <h3>Please RSVP by January 16th, 2020</h3>
     </div>
     <hr/>
     <form action="/" method="post">
@@ -114,8 +117,8 @@
             <div>
                 <label class="title">Message</label>
             </div>
-            <textarea class="field-element" id="message" name="message" type="text" spellcheck="true">
-        </textarea>
+            <textarea class="field-element" id="message" name="message" type="text" spellcheck="true"></textarea>
+
         </div>
 
         <div id="bottom-error" class="hidden-error-message">Your form has encountered a problem. Please scroll up to

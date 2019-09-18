@@ -15,12 +15,12 @@
         }
 
         textarea {
-            width: 100%;;
+            width: 100%;
             height: 150px;
             resize: none;
         }
 
-        input[type=email], input[type=text], select {
+        input, select {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -28,8 +28,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            background-color: white;
+
         }
-        select{
+
+        select {
             font-size: 19px;
         }
 
@@ -56,6 +59,8 @@
             padding-top: 20px;
         }
     </style>
+    <!-- http://jsfiddle.net/foxdonut/gq5zx661/ -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 </head>
 <body>
 <div id="main">
@@ -64,7 +69,7 @@
         <nav>
             <ul id="main-nav" class="nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Wedding</a></li>
+                <li><a href="wedding.html">Wedding</a></li>
                 <li><a class="chosen" href="rsvp.html">RSVP</a></li>
             </ul>
         </nav>
@@ -73,32 +78,30 @@
         <h3>Please RSVP by January 16th, 2020</h3>
     </div>
     <hr/>
-    <form action="/" method="post">
-
+    <!--<form id="rsvp-form" action="https://formspree.io/jhkelly05@gmail.com" method="POST"/>-->
+    <form id="rsvp" action="/rsvp" method="POST" novalidate>
         <div id="top-error" class="hidden-error-message">Your form has encountered a problem. Please scroll down to
             review.
         </div>
-        <div>
+        <div class="form-group">
             <div id="email-error" class="hidden-error-message">Email Address is required.</div>
             <label class="title">Email Address <span class="required">*</span></label>
-            <input class="field-element" id="email" name="email" type="email" autocomplete="email" spellcheck="false"/>
+            <input class="field-element" id="email" name="email" type="email" placeholder="you@example.com"
+                   autocomplete="email" spellcheck="false"/>
         </div>
 
-        <div>
-            <div id="name-error" class="hidden-error-message">Email Address is required.</div>
+        <div class="form-group">
+            <div id="name-error" class="hidden-error-message">Name is required.</div>
             <span>
-        <label class="title">First Name <span class="required">*</span></label>
-        <input class="field-element" id="first-name" name="first-name" type="text" spellcheck="false"/>
-        </span>
-            <span>
-        <label class="title">Second Name <span class="required">*</span></label>
-        <input class="field-element" id="second-name" name="second-name" type="text" spellcheck="false"/>
-        </span>
+                <label class="title">Name <span class="required">*</span></label>
+                <input class="field-element" id="name" name="name" type="text" placeholder="Jane Smith"
+                       spellcheck="false"/>
+            </span>
         </div>
 
-        <div>
+        <div class="form-group">
             <div id="attendance-error" class="hidden-error-message">Attendance is required.</div>
-            <label class="title">Are you attending? <span class="required">*</span></label>
+            <label class="title">Are you attending?<span class="required">*</span></label>
             <select id="attendance" name="attendance">
                 <option value="unanswered"></option>
                 <option value="yes">Yes</option>
@@ -106,26 +109,31 @@
             </select>
         </div>
 
-        <div>
+        <div class="form-group">
             <div class="hidden-error-message">Who else is coming with you? is required.</div>
             <label class="title">Who else is coming with you?<span class="required">*</span></label>
-            <input class="field-element" id="plus-one" name="Who else is coming with you?" type="text"
+            <input class="field-element" id="plusOne" name="plusOne" placeholder="Jane's Plus One" type="text"
                    spellcheck="false"/>
         </div>
-
+        <div class="form-group">
+            <div class="hidden-error-message">Number of children is required.</div>
+            <label class="title">How many children will be attending?<span class="required">*</span></label>
+            <input class="field-element" id="childrenNumber" name="childrenNumber" type="number"
+                   min="0" value="0"/>
+        </div>
         <div>
             <div>
                 <label class="title">Message</label>
             </div>
             <textarea class="field-element" id="message" name="message" type="text" spellcheck="true"></textarea>
-
         </div>
-
         <div id="bottom-error" class="hidden-error-message">Your form has encountered a problem. Please scroll up to
             review.
         </div>
-        <input type="submit" name="submit" value="RSVP"/>
+        <button type="submit">RSVP</button>
     </form>
 </div>
 </body>
+
+<script src="scripts/rsvp-form-validator.js"></script>
 </html>

@@ -66,7 +66,6 @@
 
     // Updates the inputs with the validation errors
     function showErrors(form, errors) {
-        form.querySelectorAll("input[name]");
         // We loop through all the inputs and show the errors for that input
         _.each(form.querySelectorAll("input[name], select[name]"), function(input) {
             showErrorsForInput(input, errors && errors[input.name]);
@@ -78,7 +77,7 @@
         // This is the root of the input
         var formGroup = closestParent(input.parentNode, "form-group")
             // Find where the error messages will be insert into
-            , messages = formGroup.querySelector(".messages");
+            , messages = formGroup.querySelector(".error-message");
         // First we remove any old messages and resets the classes
         resetFormGroup(formGroup);
         // If we have errors

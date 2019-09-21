@@ -91,9 +91,6 @@
         resetFormGroup(formGroup);
         // If we have errors
         if (errors) {
-            // we first mark the group has having errors
-            // formGroup.classList.add("has-error");
-            // then we append all the errors
             _.each(errors, function(error) {
                 addError(messages, error);
             });
@@ -123,15 +120,7 @@
         });
     }
 
-    function getPreviousSiblings(el, filter) {
-        var siblings = [];
-        while (el = el.previousSibling) { if (!filter || filter(el)) siblings.push(el); }
-        return siblings;
-    }
 
-
-    // Adds the specified error with the following markup
-    // <p class="help-block error">[message]</p>
     function addError(messages, error) {
         // Add the separator be
         var separator = document.createElement("span");
@@ -142,15 +131,6 @@
 
         // Set the error message
         messages.innerHTML = error;
-
-        // var block = document.createElement("p");
-        // block.classList.add("help-block");
-        // block.classList.add("error");
-        // block.innerHTML = error;
-        // messages.appendChild(block);
     }
 
-    function showSuccess() {
-        alert("Success!");
-    }
 })();

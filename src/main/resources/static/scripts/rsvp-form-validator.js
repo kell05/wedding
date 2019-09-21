@@ -3,16 +3,21 @@
     var constraints = {
         email: {
             // Email is required
-            presence: true,
+            // presence: true,
+            presence:{
+                allowEmpty: false,
+                message:  "^can not be empty."
+            },
             // and must be an email (duh)
-            email: true
+            email:{
+                message: "^must be a valid email address" } //true,
+
         },
         name: {
-            presence: true,
-            length: {
-                minimum: 1,
+            presence:{
+                allowEmpty: false,
+                message:  "^can not be empty."
             },
-
         },
         plusOne: {
             // And must be at least 5 characters long
@@ -22,7 +27,10 @@
         }
         ,attendance: {
             // You also need to input where you live
-            presence: true,
+            presence:{
+                allowEmpty: false,
+                message:  "^attendance must be set"
+            },
             // And we restrict the countries supported to Sweden
             inclusion: {
                 within: ["yes","no"],
@@ -78,19 +86,17 @@
         var formGroup = closestParent(input.parentNode, "form-group")
             // Find where the error messages will be insert into
             , messages = formGroup.querySelector(".error-message");
+
         // First we remove any old messages and resets the classes
         resetFormGroup(formGroup);
         // If we have errors
         if (errors) {
             // we first mark the group has having errors
-            formGroup.classList.add("has-error");
+            // formGroup.classList.add("has-error");
             // then we append all the errors
             _.each(errors, function(error) {
                 addError(messages, error);
             });
-        } else {
-            // otherwise we simply mark it as success
-            formGroup.classList.add("has-success");
         }
     }
 
@@ -107,27 +113,40 @@
     }
 
     function resetFormGroup(formGroup) {
-        // Remove the success and error classes
-        formGroup.classList.remove("has-error");
-        formGroup.classList.remove("has-success");
         // and remove any old messages
-        _.each(formGroup.querySelectorAll(".help-block.error"), function(el) {
-            el.parentNode.removeChild(el);
+        _.each(formGroup.querySelectorAll(".error-message"), function(el) {
+            el.htmlHTML ="";
         });
     }
+
+    function getPreviousSiblings(el, filter) {
+        var siblings = [];
+        while (el = el.previousSibling) { if (!filter || filter(el)) siblings.push(el); }
+        return siblings;
+    }
+
 
     // Adds the specified error with the following markup
     // <p class="help-block error">[message]</p>
     function addError(messages, error) {
-        var block = document.createElement("p");
-        block.classList.add("help-block");
-        block.classList.add("error");
-        block.innerHTML = error;
-        messages.appendChild(block);
+        // Add the separator be
+        var separator = document.createElement("span");
+        separator.classList.add("error-message-separator");
+        separator.classList.add("title");
+        separator.innerHTML = " - ";
+        messages.parentNode.insertBefore(separator, messages);
+
+        // Set the error message
+        messages.innerHTML = error;
+
+        // var block = document.createElement("p");
+        // block.classList.add("help-block");
+        // block.classList.add("error");
+        // block.innerHTML = error;
+        // messages.appendChild(block);
     }
 
     function showSuccess() {
-        // We made it \:D/
         alert("Success!");
     }
 })();

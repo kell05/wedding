@@ -113,9 +113,13 @@
     }
 
     function resetFormGroup(formGroup) {
-        // and remove any old messages
+        // Clear Error messages
         _.each(formGroup.querySelectorAll(".error-message"), function(el) {
-            el.htmlHTML ="";
+            el.innerHTML ="";
+        });
+        // Remove the separator
+        _.each(formGroup.querySelectorAll(".error-message-separator"), function(el) {
+            el.parentNode.removeChild(el);
         });
     }
 

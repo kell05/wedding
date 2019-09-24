@@ -10,6 +10,15 @@
             display: none;
         }
 
+        .main-error-message {
+            padding: 8px;
+            margin: 0px ;
+            color: red;
+            text-align: center;
+
+            /*display: none;*/
+        }
+
         .error-message {
             color: red;
         }
@@ -20,31 +29,37 @@
             resize: none;
         }
 
-        .has-error{
-            border: 3px solid red;
-        }
-
-        .normal{
+        .normal {
             border: 1.5px solid #ccc;
         }
 
-
-        input, select {
+        select{
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
             display: inline-block;
-            /*border: 1px solid #ccc;*/
+            border: 1px solid #ccc;
             /* TODO This breaks the button */
-            /*height:30px;*/
+            height:30px;
+            text-indent: 12px;
             border-radius: 4px;
             box-sizing: border-box;
             background-color: white;
         }
 
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            /*border: 1px solid #ccc;*/
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: white;
+        }
 
         /*select {*/
-            /*font-size: 19px;*/
+        /*font-size: 19px;*/
         /*}*/
 
         input[type=submit] {
@@ -94,12 +109,11 @@
     <form id="rsvp" action="/rsvp" method="POST" novalidate>
         <div class="form-group">
             <label class="title">Email Address<span class="error-message"></span></label>
-            <input class="has-error" id="email" name="email" type="email" placeholder="you@example.com"
+            <input class="normal" id="email" name="email" type="email" placeholder="you@example.com"
                    autocomplete="email" spellcheck="false"/>
         </div>
 
         <div class="form-group">
-            <div id="name-error" class="hidden-error-message">Name is required.</div>
             <span>
                 <label class="title">Name<span class="error-message"></span></label>
                 <input class="normal" id="name" name="name" type="text" placeholder="Jane Smith"
@@ -125,10 +139,16 @@
             <div class="messages"></div>
         </div>
         <div class="form-group">
-            <div class="hidden-error-message">Number of children is required.</div>
-            <label class="title">How many  children will be attending?<span class="error-message"></span></label>
-            <input class="normal" id="childrenNumber" name="childrenNumber" type="number"
-                   min="0" value="0"/>
+            <label class="title">How many children will be attending?<span class="error-message"></span></label>
+            <!--<select class="normal" id="childrenNumber" name="childrenNumber" type="number" placeholder="None" min="0"/>-->
+            <select id="childrenNumber" name="childrenNumber">
+                <option value="none">None</option>
+                <option value="one">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+                <option value="four">Four</option>
+                <option value="five">Five</option>
+            </select>
         </div>
         <div>
             <div>
@@ -136,7 +156,13 @@
             </div>
             <textarea class="normal" id="message" name="message" type="text" spellcheck="true"></textarea>
         </div>
-        <div id="bottom-error" class="hidden-error-message">Your form has encountered a problem. Please scroll up to review.</div>
+
+        <div class="main-error-message">
+            <p class="hidden-error-message">
+                There are problems with the information in the form.
+            </p>
+        </div>
+
         <input type="submit" value="RSVP"/>
     </form>
 </div>
